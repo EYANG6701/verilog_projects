@@ -1,9 +1,9 @@
 module fulladd (sum, c_out, a, b, c_in);
 
-output = s, c_out;
-input = a, b, c_in;
+output sum, c_out;
+input a, b, c_in;
 
-wire = s1, c1, c2;
+wire s1, c1, c2;
 
     xor (s1, a, b);
     and (c1, a, b);
@@ -25,11 +25,11 @@ wire c1, c2, c3;
 fulladd fa0(sum[0], c1, a[0], b[0], c_in);
 fulladd fa1(sum[1], c2, a[1], b[1], c1);
 fulladd fa2(sum[2], c3, a[2], b[2], c2);
-fulladd fa3(sum[3], c_out, a[3], b[3], c[3]);
+fulladd fa3(sum[3], c_out, a[3], b[3], c3);
 
 endmodule
 
-module stimulus:
+module stimulus;
 
 reg [3:0] A, B;
 reg C_IN;
@@ -40,7 +40,7 @@ fulladd4 FA1_4(SUM, C_OUT, A, B, C_IN);
 
 initial 
 begin
-    $monitor($time," A= %b, B=%b, C_IN= %b,, C_OUT= %b, SUM= %b/n", A, B C_IN, C_OUT, SUM);
+    $monitor($time, " A=%b, B=%b, C_IN=%b, C_OUT=%b, SUM=%b\n", A, B, C_IN, C_OUT, SUM);
 end
 
 initial 
