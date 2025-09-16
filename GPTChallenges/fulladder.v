@@ -3,8 +3,8 @@ module fulladder (sum, c_out, a, b, c_in);
     //output ports
     output sum, c_out;
 
-    /input ports
-    input a, b, c_in
+    //input ports
+    input a, b, c_in;
 
     //wires
     wire w1, w2, w3;
@@ -35,7 +35,7 @@ module tb_fulladder;
             a = $random % 2;
             b = $random % 2;
             c_in = $random % 2;
-            #10
+            #10;
             $display (" %4t | %b %b %b | %b %b ", $time, a, b, c_in, sum, c_out);
         end
 
