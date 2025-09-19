@@ -1,24 +1,25 @@
-module decoder_tb.v;
+module decoder_tb;
 
-    //Outputs are registers
-    reg [3:0] out;
+    //Outputs are wires
+    wire [3:0] out;
 
-    //Inputs are wires
-    wire [1:0] in;
+    //Inputs are registers
+    reg [1:0] in;
 
     //Instantiate DUT
-    decoder_behavioral dut (.out(out), .in(in));
-
+    decoder dut (.out(out), .in(in));
+	integer i;
     //Display stuff
     initial begin 
         $display (" time  |  in out ");
         $monitor (" %4t | %2b %4b ", $time, in, out);
-
-        #10 in = 2'b00;
-        #10 in = 2'b11;
-        #10 in = 2'b10;
-        #10 in = 2'b01;
-        $finish
+	
+	//Loop through all combos
+	for (i = 0; i < 4; i = i + 1) begin
+		in = i;
+		#10;
+	end
+	$finish;
     end
 endmodule 
 
