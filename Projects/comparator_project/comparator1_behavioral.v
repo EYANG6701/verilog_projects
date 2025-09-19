@@ -1,7 +1,7 @@
 module comparator1_behavioral (lt, eq, gt, a, b);
 
     //Output points
-    output lt, eq, gt;
+    output reg lt, eq, gt;
 
     //Input ports
     input a, b;
