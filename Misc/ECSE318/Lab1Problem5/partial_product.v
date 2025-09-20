@@ -26,7 +26,7 @@ module partial_product (p1, p2, p3, p4, p5, a, b);
     end
 
     //Stage 3
-    for (i = 0; i < 5; i = i = 1) begin
+    for (i = 0; i < 5; i = i + 1) begin
         p3[i + 2] = a[i] & b[2];
     end
     for (i = 7; i < 9; i = i + 1) begin
@@ -45,6 +45,6 @@ module partial_product (p1, p2, p3, p4, p5, a, b);
     for (i = 0; i < 5; i = i + 1) begin
         p5[i + 4] = a[i] & b[4];
     end
-    
+
 endmodule
     
