@@ -9,18 +9,19 @@ module dflip_tb ();
     //Initialize the DUT
     dflip DUT (.q(q), .q_bar(q_bar), .d(d), .clk(clk), .reset(reset));
 
-    //Start
+    //Clock generator
+    initial clk = 0;
+    always #5 clk = ~clk;  // toggle every 5 time units
+
+    //Stimulus
     initial begin
         $display (" time | d reset | q q_bar ");
-        $monitor ("%04t | %b %b | %b %b ", $time, d, reset, q, q_bar);
-
-        //Clock generator
-        always #5 clk = ~clk;
+        $monitor ("%04t |   %b    %b   |  %b   %b ", $time, d, reset, q, q_bar);
 
         repeat (10) begin
-            d = $random % 2;
-            reset = $random % 2;
-            #10
+            d = $random % 2;      // random data
+            reset = $random % 2;  // random reset
+            #10;                  // wait for next cycle
         end
 
         $finish;

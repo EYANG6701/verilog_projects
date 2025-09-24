@@ -12,7 +12,8 @@ module dflip (q, q_bar, d, clk, reset);
             q <= 1'b0;
             q_bar <= 1'b1;
         end else begin
-        q <= d;
-        q_bar <= ~d;
+            q <= d;
+            q_bar <= ~d;
+	    end
     end
 endmodule
