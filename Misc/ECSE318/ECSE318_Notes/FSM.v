@@ -24,6 +24,7 @@ function [2:0] fsm;
         s0: begin //state = s0
             if (fsm_X == 2'b10) begin Z = 1'b0; NSTATE = s10; end else
             if (fsm_X == 2'b01) begin Z = 1'b0; NSTATE = s5; end else
+            begin Z = 1'b0; NSTATE = s5; end
         end
         s5: begin //state = s5
             if (fsm_X == 2'b10) begin Z = 1'b0; NSTATE = s15; end else
