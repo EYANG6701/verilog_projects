@@ -47,5 +47,5 @@ module alu_module (
                (alu_code[4:3] == 2'b10) ? c_shift :
                                           c_set_condition;
 
-    assign overflow = vout; // choose which overflow you want
+    assign overflow = vout || cout; 
 endmodule

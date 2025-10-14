@@ -6,8 +6,8 @@ module logic (
 );
     always @(*) begin 
         case (code)
-            3'b000: C = A & B;
-            3'b001: C = A | B;
+            3'b000: C = A && B;
+            3'b001: C = A || B;
             3'b010: C = A ^ B;
             3'b011: C = ~A;
             default: C = 16'b0;
